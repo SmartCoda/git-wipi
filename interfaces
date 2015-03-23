@@ -1,0 +1,13 @@
+auto lo
+iface lo inet loopback
+
+iface eth0 inet dhcp
+
+iface wlan0 inet static
+	address 10.172.0.1
+	netmask 255.255.255.0
+	post-up /home/pi/bin/wipi-wlan0-post-up.sh
+
+auto wlan1
+iface wlan1 inet dhcp
+	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
